@@ -3,17 +3,15 @@ import { FC, memo } from "react";
 type Footerprops = {};
 
 const Footer: FC<Footerprops> = () => {
-  // About TMDB
-  // Contact Us
-  // Support Forums
-  // API
-  // System Status
+
   return (
     <div>
-      <footer className="p-4  sm:p-6 bg-slate-800 mt-96">
+      <hr className="lg:hidden" />
+      <footer className=" p-6   sm:p-6 bg-[#032541]  mt-36">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="" className="flex items-center">
+            <hr />
+            <a href="" className="flex items-center mt-3">
               <img
                 src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
                 className="h-28 mr-3"

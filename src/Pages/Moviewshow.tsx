@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
+import { Load } from "../component/Load";
 import MoviesCart from "../component/MoviesCart";
 import { movies } from "../Models/movietype";
 
@@ -16,9 +17,13 @@ const Moviewshow: FC<Moviewshowprops> = () => {
       .then((res) => setmovie(res.data.results));
   }, []);
 
+
+  
+  if (!movie) {
+    return <Load />;
+  }
   return (
-    <div className="flex-wrap grid grid-cols-8 gap-2 mx-3 mt-10">
- 
+    <div className=" grid grid-cols-2 md:grid-cols-4 md:gap-0 md:mx-10 lg:grid-cols-8 lg:gap-2 gap-2 mx-2 mt-10">
       {movie.map((m) => {
         return (
           <div key={m.id}>
