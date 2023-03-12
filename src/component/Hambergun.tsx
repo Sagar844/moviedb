@@ -29,7 +29,7 @@ export const Hambergun: FC<apiimageprop> = () => {
         </svg>
       </button>
       {togle && (
-        <div className=" space-y-2 z-40 h-screen fixed  left-0  px-48 my-3 bg-[#032541]  transition-transform translate-x-0 ">
+        <div className=" space-y-2 z-40 h-screen fixed  left-0  px-48 my-3 bg-[#080808]  transition-transform translate-x-0 ">
           <div className="text-white text-2xl font-bold space-y-2 mt-10  -mx-36">
             <h2>Movies</h2>
             <h1>Tv Shows</h1>

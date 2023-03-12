@@ -8,20 +8,27 @@ export type movies = {
   overview: string;
   poster_path: string;
   media_type: string;
-  popularity:number
+  popularity: number;
 };
 
-export type Moviewshowprops = {
-  adult: boolean;
-  gender: number;
+// export interface Pokedex {
+//   images:      Images;
+//   change_keys: string[];
+// }
+
+export interface Images {
+  base_url: string;
+  secure_base_url: string;
+  backdrop_sizes: string[];
+  logo_sizes: string[];
+  poster_sizes: string[];
+  profile_sizes: string[];
+  still_sizes: string[];
+}
+
+export type movieprops = {
   id: number;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
   profile_path: string;
-  cast_id: number;
+  name: string;
   character: string;
-  credit_id: string;
-  order: number;
 };

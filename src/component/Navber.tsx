@@ -1,5 +1,6 @@
 import { FC, memo, useState } from "react";
 import { Link } from "react-router-dom";
+import { Searchapi } from "../Pages/Searchapi";
 import { Hambergun } from "./Hambergun";
 import TemporaryDrawer from "./TemporaryDrawer";
 import Userprofile from "./Userprofile";
@@ -7,15 +8,16 @@ import Userprofile from "./Userprofile";
 type Navbarprops = {};
 
 const Navbar: FC<Navbarprops> = () => {
+  
   const [popup, setpopup] = useState(false);
   const [pop, setpop] = useState(false);
   const [popes, setpopes] = useState(false);
   const [people, setpeople] = useState(false);
 
   return (
-    <div className="">
-      <div className=" bg-[#032541] z-10 fixed right-0 left-0 px-2.5 py-3 lg:py-2 md:py-2     ">
-        <div className="container flex flex-wrap items-center justify-between   ">
+    <div >
+      <div className=" bg-[#032541fa] z-10 fixed right-0 left-0 px-2.5 py-3 lg:py-2 md:py-2 ">
+        <div className="container flex flex-wrap items-center justify-between ">
           <Link to="/">
             <img
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
@@ -29,12 +31,12 @@ const Navbar: FC<Navbarprops> = () => {
               />
             </div>
           </Link>
-
+          <Searchapi />
           <Userprofile />
 
           <Hambergun />
-          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:justify-items-end md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:border-gray-700">
+          <div className="hidden w-full md:block  md:w-auto" id="navbar-default">
+            <ul className="flex flex-col p-4 mt-4 border  border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:border-gray-700">
               <button
                 onMouseOver={() => setpopup(true)}
                 onMouseOut={() => setpopup(false)}
