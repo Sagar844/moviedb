@@ -68,9 +68,6 @@ export interface SpokenLanguage {
 }
 
 
-const posturl = (posterpath: string) => {
-  return `https://image.tmdb.org/t/p/original${posterpath}`;
-};
 
 const Moviedetail = () => {
   const [moviedtails, setmoviedetails] = useState<Moviewshowprops | null>(null);
@@ -85,6 +82,9 @@ const Moviedetail = () => {
       .then((res) => setmoviedetails(res.data))
 
       .catch((err) => console.log(err));
+      return(() => {
+
+      })
   }, []);
 
   if (!moviedtails) {

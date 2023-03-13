@@ -9,6 +9,7 @@ import { Searchapi } from "./Pages/Searchapi";
 function App() {
   return (
     <div>
+      
       <Navber />
       <Routes>
         <Route path="/" element={<Routers />} />

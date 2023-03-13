@@ -4,7 +4,7 @@ import { Loading } from "../component/Loading";
 import { movies } from "../Models/movietype";
 import { Link, useSearchParams } from "react-router-dom";
 import { searchapi } from "../api";
-
+import { AiOutlineFileSearch } from "react-icons/ai";
 const posturl = (posterpath: string) => {
   return `https://image.tmdb.org/t/p/original${posterpath}`;
 };
@@ -29,6 +29,7 @@ export const Searchapi = () => {
   });
 
   const detectKeyDown = (e: any) => {
+    console.log(e);
     if (e.key === "Escape") {
       settogle(false);
     }
@@ -56,20 +57,26 @@ export const Searchapi = () => {
           onClick={() => settogle(true)}
           type="search"
           id="default-search"
-          className="  py-2 px-8  text-sm  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Search Movies, Tv show..."
+          className="  py-2 px-20  text-sm  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Search Movies, Tv show... "
           required
           autoComplete="on"
         />
       </div>
-
+      <div
+        onClick={() => settogle(true)}
+        className="lg:hidden md:hidden text-3xl text-white justify-center items-center"
+      >
+        <AiOutlineFileSearch />
+      </div>
+      {/* bg-white  rounded-md  */}
       {togle && (
         <div
           id="container"
           onClick={handleclose}
           className="backdrop-blur-sm  inset-0  fixed  bg-opacity-30  overflow-hidden "
         >
-          <div className="bg-white py-4  px-8 mx-60 my-auto  mt-60  rounded-md  ">
+          <div className="bg-white justify-center my-20 mx-2  lg:py-4 py-12  lg:px-8 lg:mx-60  lg:my-40 rounded-md   ">
             <div className="flex justify-end mx-5 mb-2">
               <button
                 onClick={detectKeyDown}
@@ -106,7 +113,7 @@ export const Searchapi = () => {
                   onChange={handlechange}
                   type="search"
                   id="default-search"
-                  className="block w-full px-4 py-4 pl-10 text-sm mb-3  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block mx-2 px-24 lg:w-full lg:px-4 py-4 pl-10 text-sm mb-3  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Search Movies, Tv show..."
                   required
                   autoComplete="on"
@@ -114,7 +121,9 @@ export const Searchapi = () => {
                 />
               </div>
             </form>
-            {results.length ==0  && <div>Search Your Movies </div>}
+            {results.length == 0 && <div> MOVIE NOT MACTH</div> && (
+              <div>Search Your Movies</div>
+            )}
 
             {results.length > 0 && (
               <div className=" overflow-y-scroll h-48">
@@ -124,7 +133,7 @@ export const Searchapi = () => {
                       className="flex space-x-2  border-b-2 mb-5"
                       key={res.id}
                     >
-                      <Link to={"/trending/" + res.id}>
+                      <Link target={"_blank"} to={"/trending/" + res.id}>
                         <img
                           className="w-10 h-10 "
                           src={posturl(res.poster_path)}
@@ -132,16 +141,27 @@ export const Searchapi = () => {
                         />
                         <h1>{res.title}</h1>
                       </Link>
+                      {/* <button onClick={}>x</button> */}
                     </div>
                   );
                 })}
               </div>
             )}
-
-            {results.length == 0 && <div>No Moview Found</div>}
+            <div className="border-b-2 my-10"></div>
+            <div className="flex justify-end items-end my-2 mx-2 space-x-2">
+              <h1>Powerd by </h1>
+              <img
+                className="w-20"
+                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Algolia_logo_full_blue.svg"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       )}
     </div>
   );
 };
+function ketdown(this: Document, ev: KeyboardEvent) {
+  throw new Error("Function not implemented.");
+}

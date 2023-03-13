@@ -1,4 +1,5 @@
 import { FC, memo } from "react";
+import { Helmet } from "react-helmet";
 import { Moviewshowprops } from "../Pages/Moviedetail";
 
 type movieprops = {
@@ -12,6 +13,10 @@ const posturl = (posterpath: string) => {
 const MoviedetailCart: FC<movieprops> = ({ movies }) => {
   return (
     <div className="bg-[#20200b] ">
+      <Helmet>
+        <title>{movies.title +" | | TMDB "}</title>
+      </Helmet>
+
       <img
         className="  opacity-60 h-80 md:max-w-full  md:h-full object-cover"
         src={posturl(movies.backdrop_path)}

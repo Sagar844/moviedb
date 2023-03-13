@@ -2,7 +2,7 @@ import { FC, memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Searchapi } from "../Pages/Searchapi";
 import { Hambergun } from "./Hambergun";
-import TemporaryDrawer from "./TemporaryDrawer";
+
 import Userprofile from "./Userprofile";
 
 type Navbarprops = {};
@@ -19,7 +19,7 @@ const Navbar: FC<Navbarprops> = () => {
       <div className=" bg-[#032541fa] z-10 fixed right-0 left-0 px-2.5 py-3 lg:py-2 md:py-2 ">
         <div className="container flex flex-wrap items-center justify-between ">
           <Link to="/">
-            <img
+            <img title="TMDB"
               src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
               className="w-36  sm:h-9 sm:flex hidden"
               alt="TMDB LOGO"
@@ -70,7 +70,6 @@ const Navbar: FC<Navbarprops> = () => {
                 More
               </button>
 
-              <TemporaryDrawer />
             </ul>
           </div>
           {popup && (

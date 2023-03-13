@@ -17,7 +17,7 @@ const Moviewshow: FC<movieprops> = ({ movies }) => {
   return (
     <div className="snap-center">
       <Link to={"/trending/" + movies.id}>
-        <img
+        <img title={movies.title}
           className="w-40 rounded-lg "
           src={posturl(movies.poster_path)}
           alt={movies.title}
