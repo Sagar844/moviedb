@@ -7,6 +7,7 @@ import { movieprops, movies } from "../Models/movietype";
 
 const Moviedetail = () => {
   const [moviedtails, setmoviedetails] = useState<movieprops[]>([]);
+  console.log(moviedtails)
 
   const param = useParams();
   const id = param.id && +param.id;
@@ -18,7 +19,7 @@ const Moviedetail = () => {
       .get(Base_Url + id + " /credits" + API)
       .then((res) => setmoviedetails(res.data.cast))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   if (!moviedtails) {
     return <Loading />;
@@ -36,9 +37,11 @@ const Moviedetail = () => {
             className=" px-8 rounded-md  shadow-lg  border-black"
           >
             <img
-              className="  rounded-full h-20 w-28 object-cover "
+              className="  rounded-md h-20 w-28  object-fill   "
               src={
-                ca.profile_path !== null ? `https://image.tmdb.org/t/p/original${ca.profile_path} ` : maleicon
+                ca.profile_path !== null
+                  ? `https://image.tmdb.org/t/p/original${ca.profile_path} `
+                  : maleicon
               }
               alt=""
             />

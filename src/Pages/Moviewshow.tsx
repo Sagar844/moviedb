@@ -8,6 +8,7 @@ type Moviewshowprops = {};
 
 const Moviewshow: FC<Moviewshowprops> = () => {
   const [movie, setmovie] = useState<movies[]>([]);
+  console.log(movie)
 
   useEffect(() => {
     axios

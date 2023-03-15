@@ -70,8 +70,8 @@ export interface SpokenLanguage {
 
 
 const Moviedetail = () => {
-  const [moviedtails, setmoviedetails] = useState<Moviewshowprops | null>(null);
-  console.log(moviedtails);
+  const [moviedtails, setmoviedetails] = useState<Moviewshowprops>();
+  // console.log(moviedtails);
 
   const param = useParams();
   const id = param.id && +param.id;

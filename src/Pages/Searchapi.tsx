@@ -1,10 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Loading } from "../component/Loading";
 import { movies } from "../Models/movietype";
 import { Link, useSearchParams } from "react-router-dom";
 import { searchapi } from "../api";
-import { AiOutlineFileSearch } from "react-icons/ai";
+import { FaSearchengin } from "react-icons/fa";
 const posturl = (posterpath: string) => {
   return `https://image.tmdb.org/t/p/original${posterpath}`;
 };
@@ -14,16 +13,20 @@ export const Searchapi = () => {
   const [results, setresults] = useState<movies[]>([]);
   const [togle, settogle] = useState(false);
 
+  // console.log(results)
+
   const parms = Object.fromEntries([...searchParams]);
   let { query } = parms;
   localStorage.setItem("query", query);
 
-  function handlechange(event: { target: { value: any } }) {
+  function handlechange(event: { target: { value: string } }) {
     setSearchParams(
       { ...parms, query: event.target.value },
       { replace: false }
     );
   }
+
+  // escape key
   useEffect(() => {
     document.addEventListener("keydown", detectKeyDown, true);
   });
@@ -67,7 +70,7 @@ export const Searchapi = () => {
         onClick={() => settogle(true)}
         className="lg:hidden md:hidden text-3xl text-white justify-center items-center"
       >
-        <AiOutlineFileSearch />
+        <FaSearchengin />
       </div>
       {/* bg-white  rounded-md  */}
       {togle && (
@@ -121,16 +124,17 @@ export const Searchapi = () => {
                 />
               </div>
             </form>
-            {results.length == 0 && <div> MOVIE NOT MACTH</div> && (
+            {results.length == undefined && <div>please search</div>}
+            {/* {results.length == 0 && <div> MOVIE NOT MACTH</div> && (
               <div>Search Your Movies</div>
-            )}
+            )} */}
 
             {results.length > 0 && (
               <div className=" overflow-y-scroll h-48">
                 {results.map((res) => {
                   return (
                     <div
-                      className="flex space-x-2  border-b-2 mb-5"
+                      className="flex space-x-2  border-b-2 mb-5 mx-2"
                       key={res.id}
                     >
                       <Link target={"_blank"} to={"/trending/" + res.id}>
@@ -148,11 +152,11 @@ export const Searchapi = () => {
               </div>
             )}
             <div className="border-b-2 my-10"></div>
-            <div className="flex justify-end items-end my-2 mx-2 space-x-2">
+            <div className="flex justify-end  my-2 mx-2 space-x-2 items-center">
               <h1>Powerd by </h1>
               <img
                 className="w-20"
-                src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Algolia_logo_full_blue.svg"
+                src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
                 alt=""
               />
             </div>
