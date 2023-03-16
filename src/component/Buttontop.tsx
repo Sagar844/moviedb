@@ -11,7 +11,7 @@ export const Buttontop = () => {
           onMouseOver={() => sethover(true)}
           onMouseLeave={() => sethover(false)}
           data-tooltip-target="tooltip-default"
-          className=" bg-[#032541]  text-purple-500 rounded-full p-4 animate-bounce  "
+          className=" bg-[#032541e0]  text-purple-500 rounded-full p-4 animate-bounce  "
         >
           <AiOutlineArrowUp />
         </button>
