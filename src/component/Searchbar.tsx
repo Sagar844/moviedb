@@ -5,7 +5,7 @@ type searchprops = {};
 
 export const Searchbar: FC<searchprops> = () => {
   return (
-    <div className=" ">
+    <div id="Navbar" className=" ">
       <img
         className=" h-96  md:w-full md:h-full lg:max-h-full "
         src={Image}

@@ -8,7 +8,7 @@ type Moviewshowprops = {};
 
 const Moviewshow: FC<Moviewshowprops> = () => {
   const [movie, setmovie] = useState<movies[]>([]);
-  console.log(movie)
+  console.log(movie);
 
   useEffect(() => {
     axios
@@ -18,8 +18,6 @@ const Moviewshow: FC<Moviewshowprops> = () => {
       .then((res) => setmovie(res.data.results));
   }, []);
 
-
-  
   if (!movie) {
     return <Load />;
   }

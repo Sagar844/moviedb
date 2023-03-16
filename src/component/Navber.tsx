@@ -2,7 +2,6 @@ import { FC, memo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Searchapi } from "../Pages/Searchapi";
 import { Hambergun } from "./Hambergun";
-
 import Userprofile from "./Userprofile";
 
 type Navbarprops = {};
@@ -16,7 +15,7 @@ const Navbar: FC<Navbarprops> = () => {
 
   return (
     <div >
-      <div className=" bg-[#032541fa] z-10 fixed right-0 left-0 px-2.5 py-3 lg:py-2 md:py-2 ">
+      <div  className=" bg-[#032541] z-10 fixed right-0 left-0 px-2.5 py-3 lg:py-2 md:py-2 ">
         <div className="container flex flex-wrap items-center justify-between ">
           <Link to="/">
             <img title="TMDB"

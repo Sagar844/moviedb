@@ -14,7 +14,7 @@ const posturl = (posterpath: string) => {
 const MoviedetailCart: FC<movieprops> = ({ movies }) => {
   return (
     <HelmetProvider>
-      <div className="bg-[#20200b] ">
+      <div id="Navbar"className="bg-[#20200b] ">
         <Helmet>
           <title>{movies.title + " | | TMDB "}</title>
         </Helmet>

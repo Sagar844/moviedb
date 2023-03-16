@@ -83,7 +83,7 @@ export const Searchapi = () => {
             <div className="flex justify-end mx-5 mb-2">
               <button
                 onClick={detectKeyDown}
-                className=" rounded-md px-1 text-gray-100 bg-gray-400"
+                className=" rounded-md px-2 text-gray-100 bg-gray-400"
               >
                 Esc
               </button>
@@ -124,10 +124,7 @@ export const Searchapi = () => {
                 />
               </div>
             </form>
-            {results.length == undefined && <div>please search</div>}
-            {/* {results.length == 0 && <div> MOVIE NOT MACTH</div> && (
-              <div>Search Your Movies</div>
-            )} */}
+            {results.length == 0 && <div>Please Search</div>}
 
             {results.length > 0 && (
               <div className=" overflow-y-scroll h-48">
@@ -154,11 +151,13 @@ export const Searchapi = () => {
             <div className="border-b-2 my-10"></div>
             <div className="flex justify-end  my-2 mx-2 space-x-2 items-center">
               <h1>Powerd by </h1>
-              <img
-                className="w-20"
-                src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
-                alt=""
-              />
+              <a target={"_blank"} href="https://www.themoviedb.org/">
+                <img
+                  className="w-20"
+                  src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -166,6 +165,3 @@ export const Searchapi = () => {
     </div>
   );
 };
-function ketdown(this: Document, ev: KeyboardEvent) {
-  throw new Error("Function not implemented.");
-}

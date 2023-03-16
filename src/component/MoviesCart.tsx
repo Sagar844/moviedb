@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import { FC, memo } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { movies } from "../Models/movietype";
 import { CircularProgressWithLabel } from "./CircularProgressWithLabel";
@@ -15,6 +16,10 @@ const posturl = (posterpath: string) => {
 
 const Moviewshow: FC<movieprops> = ({ movies }) => {
   return (
+<HelmetProvider>
+  <Helmet>
+    <title>The Movie Database(TMDB)</title>
+  </Helmet>
     <div className="snap-center">
       <Link to={"/trending/" + movies.id}>
         <img title={movies.title}
@@ -23,9 +28,10 @@ const Moviewshow: FC<movieprops> = ({ movies }) => {
           alt={movies.title}
         />
       </Link>
-      <CircularProgressWithLabel value={movies.popularity} />
+      {/* <CircularProgressWithLabel value={movies.popularity} /> */}
       <h1>{movies.title}</h1>
     </div>
+    </HelmetProvider>
   );
 };
 
